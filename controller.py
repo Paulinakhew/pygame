@@ -13,7 +13,8 @@ HEIGHT = 600
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
-BACKGROUND_COLOUR = (11, 238, 207)
+#BACKGROUND_COLOUR = (11, 238, 207)
+BACKGROUND_COLOUR = (0, 0, 0)
 
 #player variables
 player_size = 50
