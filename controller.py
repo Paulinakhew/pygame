@@ -3,6 +3,7 @@ import random
 import sys
 
 import model as m
+import view as v
 
 pygame.init()
 
@@ -10,9 +11,7 @@ pygame.init()
 WIDTH = 800
 HEIGHT = 600
 
-#rgb colour codes
 RED = (255, 0, 0)
-BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
 #BACKGROUND_COLOUR = (11, 238, 207)
 BACKGROUND_COLOUR = (0, 0, 0)
@@ -37,12 +36,6 @@ score = 0
 clock = pygame.time.Clock()
 
 myFont = pygame.font.SysFont("monospace", 35)
-
-
-
-def draw_enemies(enemy_list):
-    for enemy_pos in enemy_list:
-        pygame.draw.rect(screen, BLUE, (enemy_pos[0], enemy_pos[1], enemy_size, enemy_size))
 
 def update_enemy_positions(enemy_list, score):
     for idx, enemy_pos in enumerate(enemy_list):
@@ -102,10 +95,10 @@ while not game_over:
         game_over = True
         #break
     
-    draw_enemies(enemy_list)
+    v.draw_enemies(enemy_list, screen, enemy_pos, enemy_size)
 
     pygame.draw.rect(screen, RED, (player_pos[0], player_pos[1], player_size, player_size))
 
     clock.tick(30)
 
-    pygame.display.update()
+    v.update_screen()
