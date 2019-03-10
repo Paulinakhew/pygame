@@ -2,6 +2,7 @@ import pygame
 import random
 import sys
 
+import model as m
 
 pygame.init()
 
@@ -37,25 +38,7 @@ clock = pygame.time.Clock()
 
 myFont = pygame.font.SysFont("monospace", 35)
 
-def set_level(score, SPEED):
-    if score < 20:
-        SPEED = 5
-    elif score < 40:
-        SPEED = 8
-    elif score < 60:
-        SPEED = 12
-    else:
-        SPEED = 15
-    
-    #SPEED = score/5 + 5
-    return SPEED
 
-def drop_enemies(enemy_list):
-    delay = random.random()
-    if len(enemy_list) < 10 and delay < 0.1:
-        x_pos = random.randint(0, WIDTH-enemy_size)
-        y_pos = 0
-        enemy_list.append([x_pos, y_pos])
 
 def draw_enemies(enemy_list):
     for enemy_pos in enemy_list:
@@ -107,9 +90,9 @@ while not game_over:
     
     screen.fill(BACKGROUND_COLOUR)
     
-    drop_enemies(enemy_list)
+    enemy_list = m.drop_enemies(enemy_list, WIDTH, enemy_size)
     score = update_enemy_positions(enemy_list, score)
-    SPEED = set_level(score, SPEED)
+    SPEED = m.set_level(score, SPEED)
     
     text = "Score: " + str(score)
     label = myFont.render(text, 1, YELLOW)
