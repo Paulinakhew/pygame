@@ -13,6 +13,7 @@ HEIGHT = 600
 
 RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
+BLUE = (0, 0, 255)
 #BACKGROUND_COLOUR = (11, 238, 207)
 BACKGROUND_COLOUR = (0, 0, 0)
 
@@ -37,14 +38,6 @@ clock = pygame.time.Clock()
 
 myFont = pygame.font.SysFont("monospace", 35)
 
-def update_enemy_positions(enemy_list, score):
-    for idx, enemy_pos in enumerate(enemy_list):
-        if enemy_pos[1] >= 0 and enemy_pos[1] < HEIGHT:
-            enemy_pos[1] += SPEED
-        else:
-            enemy_list.pop(idx)
-            score += 1
-    return score
 
 def collision_check(enemy_list, player_pos):
     for enemy_pos in enemy_list:
@@ -84,7 +77,7 @@ while not game_over:
     screen.fill(BACKGROUND_COLOUR)
     
     enemy_list = m.drop_enemies(enemy_list, WIDTH, enemy_size)
-    score = update_enemy_positions(enemy_list, score)
+    enemy_list, score, SPEED = m.update_enemy_positions(enemy_list, score, SPEED, HEIGHT)
     SPEED = m.set_level(score, SPEED)
     
     text = "Score: " + str(score)
@@ -95,9 +88,9 @@ while not game_over:
         game_over = True
         #break
     
-    v.draw_enemies(enemy_list, screen, enemy_pos, enemy_size)
+    v.draw_enemies(enemy_list, screen, enemy_pos, enemy_size, BLUE)
 
-    pygame.draw.rect(screen, RED, (player_pos[0], player_pos[1], player_size, player_size))
+    v.draw_player(screen, RED, player_pos, player_size)
 
     clock.tick(30)
 
