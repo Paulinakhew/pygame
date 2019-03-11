@@ -11,7 +11,6 @@ def set_level(score, SPEED):
         SPEED = 17
     else:
         SPEED = 20
-    
     #SPEED = score/5 + 5
     return SPEED
 
@@ -30,7 +29,7 @@ def update_enemy_positions(enemy_list, score, SPEED, HEIGHT):
         else:
             enemy_list.pop(idx)
             score += 1
-    return enemy_list, score, SPEED
+    return enemy_list, score
 
 def collision_check(enemy_list, player_pos, player_size, enemy_size):
     for enemy_pos in enemy_list:

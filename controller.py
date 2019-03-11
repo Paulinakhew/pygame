@@ -53,19 +53,15 @@ while not game_over:
 
             player_pos = [x, y]
     
-    screen.fill(BACKGROUND_COLOUR)
+    v.fill_background(screen, BACKGROUND_COLOUR)
     
     enemy_list = m.drop_enemies(enemy_list, WIDTH, enemy_size)
-    enemy_list, score, SPEED = m.update_enemy_positions(enemy_list, score, SPEED, HEIGHT)
+    enemy_list, score = m.update_enemy_positions(enemy_list, score, SPEED, HEIGHT)
     SPEED = m.set_level(score, SPEED)
     
-    text = "Score: " + str(score)
-    label = myFont.render(text, 1, YELLOW)
-    screen.blit(label, (WIDTH-200, HEIGHT-40))
+    v.print_score(score, myFont, YELLOW, screen, WIDTH, HEIGHT)
 
-    if m.collision_check(enemy_list, player_pos, player_size, enemy_size):
-        game_over = True
-        #break
+    game_over = m.collision_check(enemy_list, player_pos, player_size, enemy_size)
     
     v.draw_enemies(enemy_list, screen, enemy_pos, enemy_size, BLUE)
 

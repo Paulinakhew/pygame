@@ -12,3 +12,11 @@ def draw_player(screen, RED, player_pos, player_size):
 
 def set_fps(clock):
     clock.tick(30)
+
+def print_score(score, myFont,  YELLOW, screen, WIDTH, HEIGHT):
+    text = "Score: " + str(score)
+    label = myFont.render(text, 1, YELLOW)
+    screen.blit(label, (WIDTH-200, HEIGHT-40))
+
+def fill_background(screen, BACKGROUND_COLOUR):
+    screen.fill(BACKGROUND_COLOUR)
