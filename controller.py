@@ -5,7 +5,7 @@ import sys
 import model as m
 import view as v
 
-m.initialize_pygame()
+v.initialize_pygame()
 
 def game_loop():
     #declare width and height of screen
@@ -47,9 +47,9 @@ def game_loop():
                 x = player_pos[0]
                 y = player_pos[1]
 
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_LEFT and m.not_overflow_left(player_pos, player_size, WIDTH):
                     x -= player_size
-                elif event.key == pygame.K_RIGHT:
+                elif event.key == pygame.K_RIGHT and m.not_overflow_right(player_pos, player_size, WIDTH):
                     x += player_size
 
                 player_pos = [x, y]

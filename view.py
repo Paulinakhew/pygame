@@ -1,5 +1,8 @@
 import pygame
 
+def initialize_pygame():
+    pygame.init()
+
 def draw_enemies(enemy_list, screen, enemy_pos, enemy_size, BLUE):
     for enemy_pos in enemy_list:
         pygame.draw.rect(screen, BLUE, (enemy_pos[0], enemy_pos[1], enemy_size, enemy_size))
