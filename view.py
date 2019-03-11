@@ -9,3 +9,6 @@ def update_screen():
 
 def draw_player(screen, RED, player_pos, player_size):
     pygame.draw.rect(screen, RED, (player_pos[0], player_pos[1], player_size, player_size))
+
+def set_fps(clock):
+    clock.tick(30)
