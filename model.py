@@ -1,5 +1,8 @@
 import random
 
+def initialize_pygame():
+    pygame.init()
+
 def set_level(score, SPEED):
     if score < 20:
         SPEED = 5
