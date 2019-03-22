@@ -1,5 +1,5 @@
 # Pygame
-The player navigates past blocks that fall from the top of the screen. As the user progresses through the game, the speed of the enemy blocks increase as well. 
+To play, you need to navigate past falling enemy blocks using the arrow keys. As you progresses through the game, the speed of the enemy blocks increase as well. 
 ![](pygame.gif)
 
 ## Inspiration
