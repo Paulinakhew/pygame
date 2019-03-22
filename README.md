@@ -6,7 +6,7 @@ To play, you need to navigate past falling enemy blocks using the arrow keys. As
 I wanted to learn how to code games using Python's Pygame library.  To get the hang of Pygame, I followed [this YouTube video](https://www.youtube.com/watch?v=-8n91btt5d8) and then I continued to work on the game by adding new features and getting rid of bugs. 
 
 ## Setup
-To run the game, simply run:
+Download or clone this repository and then run:
 ```ShellSession
 $ python3 controller.py
 ```
