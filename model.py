@@ -18,7 +18,7 @@ def set_level(score, SPEED):
 
 def drop_enemies(enemy_list, WIDTH, enemy_size):
     delay = random.random()
-    if len(enemy_list) < 11 and delay < 0.3:
+    if len(enemy_list) < 11 and delay < 0.08:
         x_pos = random.randint(0, WIDTH-enemy_size)
         y_pos = 0
         enemy_list.append([x_pos, y_pos])
