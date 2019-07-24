@@ -8,5 +8,6 @@ I wanted to learn how to code games using Python's Pygame library.  To get the h
 ## Setup
 Download or clone this repository and then run:
 ```ShellSession
+$ pip3 install -r requirements.txt
 $ python3 controller.py
 ```
